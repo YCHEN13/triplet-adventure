@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f9e9b7" />
+    <title>Triplet Adventure — Yimei Chen</title>
+    <link rel="stylesheet" href="styles.css?v=chapter-1-detail-fix" />
+  </head>
+  <body>
+    <a class="skip-link" href="#book">Skip to the story</a>
+    <main class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="#" aria-label="Triplet Adventure home">Triplet Adventure</a>
+        <p>Written and illustrated by Yimei Chen</p>
+        <button class="sound-button" type="button" aria-pressed="false" title="Play narration">▶ Play narration</button>
+      </header>
+
+      <section class="reader" id="book" aria-label="Triplet Adventure story reader">
+        <div class="reader-topbar">
+          <p id="page-label" aria-live="polite"></p>
+          <p class="reader-hint" id="reader-hint">Read, tap a drawing detail, then see the original page below.</p>
+        </div>
+
+        <article class="page-stage">
+          <section class="reading-view" id="reading-view" aria-live="polite">
+            <p class="chapter-kicker" id="reading-kicker"></p>
+            <h1 id="reading-title"></h1>
+            <div id="reading-copy"></div>
+            <button class="snippet-card" id="snippet-card" type="button">
+              <img id="snippet-image" src="" alt="" />
+            </button>
+            <aside class="little-discovery" id="little-discovery" hidden></aside>
+            <details class="original-page">
+              <summary>See Yimei’s original page</summary>
+              <img id="page-art" src="public/art/Cover.jpg" alt="Hand-drawn cover for Triplet Adventure." loading="lazy" />
+            </details>
+          </section>
+        </article>
+
+
+        <nav class="reader-controls" aria-label="Story pages">
+          <button class="nav-button" id="previous" type="button">← Back</button>
+          <div class="progress" aria-hidden="true"><span id="progress-fill"></span></div>
+          <button class="nav-button primary" id="next" type="button">Begin →</button>
+        </nav>
+      </section>
+
+      <section class="parent-note">
+        <h2>For grown-ups</h2>
+        <p>This digital edition displays Yimei’s drawings as photographed. Tap <em>Read it</em> for a clear, lightly edited transcription; the original handwriting always remains available.</p>
+      </section>
+    </main>
+    <audio id="narration-player" preload="none"></audio>
+    <dialog class="detail-dialog" id="detail-dialog" aria-label="Enlarged drawing detail">
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="Close enlarged detail">×</button>
+      <img id="dialog-image" src="" alt="" />
+    </dialog>
+    <script src="app.js?v=chapter-1-detail-fix"></script>
+  </body>
+</html>
