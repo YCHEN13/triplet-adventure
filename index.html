@@ -17,11 +17,6 @@
       </header>
 
       <section class="reader" id="book" aria-label="Triplet Adventure story reader">
-        <div class="reader-topbar">
-          <p id="page-label" aria-live="polite"></p>
-          <p class="reader-hint" id="reader-hint">Read, tap a drawing detail, then see the original page below.</p>
-        </div>
-
         <article class="page-stage">
           <section class="reading-view" id="reading-view" aria-live="polite">
             <p class="chapter-kicker" id="reading-kicker"></p>
@@ -46,16 +41,12 @@
         </nav>
       </section>
 
-      <section class="parent-note">
-        <h2>For grown-ups</h2>
-        <p>This digital edition displays Yimei’s drawings as photographed. Tap <em>Read it</em> for a clear, lightly edited transcription; the original handwriting always remains available.</p>
-      </section>
     </main>
     <audio id="narration-player" preload="none"></audio>
     <dialog class="detail-dialog" id="detail-dialog" aria-label="Enlarged drawing detail">
       <button class="dialog-close" id="dialog-close" type="button" aria-label="Close enlarged detail">×</button>
       <img id="dialog-image" src="" alt="" />
     </dialog>
-    <script src="app.js?v=autoplay-character-page"></script>
+    <script src="app.js?v=clean-layout"></script>
   </body>
 </html>
