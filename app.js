@@ -7,7 +7,7 @@ const pages = [
     title: "Triplet Adventure",
     copy: ["The Long Trip Around the World"],
     discovery: "Ready to travel? The sisters’ adventure will begin with a big surprise.",
-    snippet: "public/snippets/world-map.jpg",
+    snippet: null,
     presentation: "gallery",
     audio: "public/audio/cover-intro.mp3"
   },
@@ -19,9 +19,9 @@ const pages = [
     title: "The Three Sisters",
     copy: ["Zoey is kind and smart. Emily, her big sister, is always smart—but she is...", "Mia, her small sister, is excited to be going on an adventure! Their family, teachers, and best friend Katherine are part of the story too."],
     discovery: "Try finding Zoey, Emily, and Mia in Yimei’s original character drawings.",
-    snippet: "public/snippets/sisters.jpg",
+    snippet: null,
     presentation: "gallery",
-    audio: null
+    audio: "public/audio/characters.mp3"
   },
   {
     label: "Chapter 1 · The Summer",
@@ -77,7 +77,7 @@ const soundButton = document.querySelector(".sound-button");
 const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
 
-function render() {
+function render(autoPlay = true) {
   const page = pages[current];
   label.textContent = page.label;
   art.src = page.art;
@@ -107,6 +107,7 @@ function render() {
   document.querySelector("#progress-fill").style.width = `${((current + 1) / pages.length) * 100}%`;
   previous.disabled = current === 0;
   next.textContent = current === pages.length - 1 ? "Read again ↻" : current === 0 ? "Begin →" : "Next →";
+  if (autoPlay && page.audio) void playNarration();
 }
 previous.addEventListener("click", () => { current = Math.max(0, current - 1); render(); });
 next.addEventListener("click", () => { current = current === pages.length - 1 ? 0 : current + 1; render(); });
@@ -119,15 +120,15 @@ snippetCard.addEventListener("click", () => {
 });
 document.querySelector("#dialog-close").addEventListener("click", () => detailDialog.close());
 detailDialog.addEventListener("click", event => { if (event.target === detailDialog) detailDialog.close(); });
-soundButton.addEventListener("click", async () => {
+async function playNarration() {
   const page = pages[current];
   if (!page.audio) return;
   if (!player.getAttribute("src")) player.src = page.audio;
-  if (player.paused) {
-    try { await player.play(); } catch { soundButton.textContent = "Audio is still loading"; }
-  } else {
-    player.pause();
-  }
+  try { await player.play(); } catch { soundButton.textContent = "▶ Play narration"; }
+}
+soundButton.addEventListener("click", () => {
+  if (player.paused) void playNarration();
+  else player.pause();
 });
 player.addEventListener("play", () => { soundButton.textContent = "❚❚ Pause narration"; });
 player.addEventListener("pause", () => { if (!player.ended && pages[current].audio) soundButton.textContent = "▶ Play narration"; });
