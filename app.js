@@ -60,7 +60,6 @@ const pages = [
 
 let current = 0;
 const art = document.querySelector("#page-art");
-const label = document.querySelector("#page-label");
 const kicker = document.querySelector("#reading-kicker");
 const title = document.querySelector("#reading-title");
 const copy = document.querySelector("#reading-copy");
@@ -69,7 +68,6 @@ const snippet = document.querySelector("#snippet-image");
 const snippetCard = document.querySelector("#snippet-card");
 const readingView = document.querySelector("#reading-view");
 const originalPage = document.querySelector(".original-page");
-const readerHint = document.querySelector("#reader-hint");
 const detailDialog = document.querySelector("#detail-dialog");
 const dialogImage = document.querySelector("#dialog-image");
 const player = document.querySelector("#narration-player");
@@ -79,7 +77,6 @@ const next = document.querySelector("#next");
 
 function render(autoPlay = true) {
   const page = pages[current];
-  label.textContent = page.label;
   art.src = page.art;
   art.alt = page.alt;
   kicker.textContent = page.kicker;
@@ -96,9 +93,6 @@ function render(autoPlay = true) {
   const isGallery = page.presentation === "gallery";
   readingView.classList.toggle("art-only", isGallery);
   originalPage.open = isGallery;
-  readerHint.textContent = isGallery
-    ? "Yimei’s original artwork"
-    : "Read, tap a drawing detail, then see the original page below.";
   player.pause();
   player.removeAttribute("src");
   player.load();
