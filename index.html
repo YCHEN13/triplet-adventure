@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f9e9b7" />
     <title>Triplet Adventure — Yimei Chen</title>
-    <link rel="stylesheet" href="styles.css?v=chapter-1-detail-fix" />
+    <link rel="stylesheet" href="styles.css?v=chapters-3-5-game" />
   </head>
   <body>
     <a class="skip-link" href="#book">Skip to the story</a>
@@ -22,6 +22,42 @@
             <p class="chapter-kicker" id="reading-kicker"></p>
             <h1 id="reading-title"></h1>
             <div id="reading-copy"></div>
+            <section class="reading-game" id="reading-game" hidden aria-labelledby="game-question">
+              <div class="game-step">
+                <p class="game-step-label">Challenge 1 of 2</p>
+                <h2 id="game-question">Who do you think is the smartest and most confident?</h2>
+                <div class="character-choices" role="group" aria-label="Choose a character">
+                  <button type="button" data-character="Zoey">Zoey</button>
+                  <button type="button" data-character="Emily">Emily</button>
+                  <button type="button" data-character="Mia">Mia</button>
+                  <button type="button" data-character="All three sisters">All three</button>
+                </div>
+                <p class="choice-feedback" id="choice-feedback" aria-live="polite">Pick the character you believe in.</p>
+              </div>
+
+              <div class="game-step drawing-step">
+                <p class="game-step-label">Challenge 2 of 2</p>
+                <h2>Draw the Eiffel Tower</h2>
+                <p>Use your finger, mouse, or tablet pen.</p>
+                <div class="drawing-toolbar" aria-label="Drawing tools">
+                  <div class="color-tools" aria-label="Choose a color">
+                    <button class="color-swatch selected" type="button" data-color="#38283d" aria-label="Purple pencil"></button>
+                    <button class="color-swatch" type="button" data-color="#d05b68" aria-label="Pink pencil"></button>
+                    <button class="color-swatch" type="button" data-color="#377e9e" aria-label="Blue pencil"></button>
+                    <button class="color-swatch" type="button" data-color="#d29837" aria-label="Gold pencil"></button>
+                  </div>
+                  <button class="tool-button" id="undo-drawing" type="button">Undo</button>
+                  <button class="tool-button" id="clear-drawing" type="button">Clear</button>
+                  <button class="tool-button" id="save-drawing" type="button">Save picture</button>
+                </div>
+                <div class="canvas-wrap">
+                  <canvas id="drawing-canvas" width="900" height="600" aria-label="Blank canvas for drawing the Eiffel Tower"></canvas>
+                </div>
+              </div>
+
+              <button class="finish-game" id="finish-game" type="button" disabled>Finish my Paris game</button>
+              <p class="game-result" id="game-result" aria-live="polite"></p>
+            </section>
             <button class="snippet-card" id="snippet-card" type="button">
               <img id="snippet-image" src="" alt="" />
             </button>
@@ -47,6 +83,6 @@
       <button class="dialog-close" id="dialog-close" type="button" aria-label="Close enlarged detail">×</button>
       <img id="dialog-image" src="" alt="" />
     </dialog>
-    <script src="app.js?v=clean-layout"></script>
+    <script src="app.js?v=chapters-3-5-game"></script>
   </body>
 </html>
