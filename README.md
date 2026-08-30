@@ -2,6 +2,8 @@
 
 A no-dependency, tablet-friendly interactive reader for **Triplet Adventure**, written and illustrated by Yimei Chen.
 
+The current edition includes the cover, character guide, five story chapters, high-quality narration, and Yimei's interactive Paris reading game with a touch-friendly Eiffel Tower drawing canvas.
+
 ## Run locally
 
 ```sh
